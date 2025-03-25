@@ -19,8 +19,8 @@
         <mxCell id="xQLuOkij8412rpGpJCvE-5" value="Kafka" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=4" parent="xQLuOkij8412rpGpJCvE-8" vertex="1">
           <mxGeometry x="50" y="15.000000000000004" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="dTyB1NYPiKnWLOb2Jq6Y-1" value="Profiles" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1000" y="440" width="120" height="60" as="geometry" />
+        <mxCell id="dTyB1NYPiKnWLOb2Jq6Y-1" value="Profiles" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1000" y="460" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="xQLuOkij8412rpGpJCvE-2" value="PoslgreSQL" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
           <mxGeometry x="1350" y="420" width="350" height="200" as="geometry" />
@@ -30,6 +30,9 @@
         </mxCell>
         <mxCell id="xQLuOkij8412rpGpJCvE-10" value="swipes" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1380" y="530" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9I6AU-m062yrOwvUiyNF-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dTyB1NYPiKnWLOb2Jq6Y-1" target="xQLuOkij8412rpGpJCvE-9">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

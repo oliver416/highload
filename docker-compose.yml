@@ -27,3 +27,9 @@ services:
     ports:
       - 9092:9092
 
+  profiles-service:
+    build: ./profile_service
+    ports:
+      - 8080:8000
+    depends_on:
+      - db

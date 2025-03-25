@@ -1,24 +1,15 @@
 FROM python:3.13-alpine
 
-#ENV POETRY_VIRTUALENVS_CREATE=false \
-    #POETRY_VERSION=1.4.0 \
-    #PREFECT_HOME='~/.prefect' \
-    #PREFECT_LOCAL_STORAGE_PATH='${PREFECT_HOME}/storage'
+ENV POETRY_VIRTUALENVS_CREATE=false
 
-#RUN apt-get update && apt-get install -y --no-install-recommends \
-    #wget \
-    #git \
-    #&& rm -rf /var/lib/apt/lists/*
+WORKDIR /opt
 
+COPY pyproject.toml poetry.lock ./
 
-#COPY pyproject.toml poetry.lock ./
+RUN pip install "poetry==2.1.1" --no-cache-dir \
+    && poetry config virtualenvs.create false  \
+    && poetry install --no-root --no-cache 
 
-#RUN pip install "poetry==$POETRY_VERSION" --no-cache-dir \
-    #&& poetry config virtualenvs.create false  \
-    #&& poetry install --without dev --no-root --no-cache \
-    #&& playwright install firefox \
-    #&& playwright install-deps firefox
+COPY . .
 
-#COPY . .
-
-#ENTRYPOINT ["sh", "Deploy/entrypoint.sh"]
+ENTRYPOINT ["poetry", "run", "python", "main.py"]

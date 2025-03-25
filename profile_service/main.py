@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, Integer, String, text
 
-DB_URL = 'postgresql+asyncpg://postgres:postgres@localhost:5432/postgres'
+DB_URL = 'postgresql+asyncpg://postgres:postgres@postgresql:5432/postgres'
 
 engine = create_async_engine(DB_URL, echo=True)
 AsyncSessionLocal = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
@@ -66,6 +66,7 @@ async def create_profile(request: ProfileRequest, db: AsyncSession = Depends(get
 if __name__ == '__main__':
     uvicorn.run(
         'main:app',
+        host='0.0.0.0',
         port=8000,
         log_level='info',
         reload=True,

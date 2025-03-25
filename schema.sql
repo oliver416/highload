@@ -1,5 +1,5 @@
 CREATE TABLE profiles (
-    id INTEGER PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     name VARCHAR(50),
     age INTEGER,
     sex VARCHAR(6)

@@ -8,6 +8,7 @@ CREATE TABLE profiles (
 CREATE TABLE swipes (
     id1 INTEGER,
     id2 INTEGER,
-    swipe1 BOOLEAN DEFAULT False,
-    swipe2 BOOLEAN DEFAULT False
+    swipe1 BOOLEAN DEFAULT NULL,
+    swipe2 BOOLEAN DEFAULT NULL,
+    PRIMARY KEY (id1, id2)
 );

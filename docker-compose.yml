@@ -27,9 +27,16 @@ services:
     ports:
       - 9092:9092
 
-  profiles-service:
+  profile-service:
     build: ./profile_service
     ports:
       - 8080:8000
+    depends_on:
+      - db
+
+  swipe-service:
+    build: ./swipe_service
+    ports:
+      - 8081:8000
     depends_on:
       - db

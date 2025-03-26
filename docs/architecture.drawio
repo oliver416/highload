@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.3">
   <diagram name="Page-1" id="CoTDWFha4LhTDb08zGJA">
-    <mxGraphModel dx="794" dy="442" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="934" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -20,7 +20,7 @@
           <mxGeometry x="50" y="15.000000000000004" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="dTyB1NYPiKnWLOb2Jq6Y-1" value="Profiles" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1000" y="460" width="120" height="60" as="geometry" />
+          <mxGeometry x="990" y="455" width="120" height="70" as="geometry" />
         </mxCell>
         <mxCell id="xQLuOkij8412rpGpJCvE-2" value="PoslgreSQL" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
           <mxGeometry x="1350" y="420" width="350" height="200" as="geometry" />
@@ -31,8 +31,20 @@
         <mxCell id="xQLuOkij8412rpGpJCvE-10" value="swipes" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1380" y="530" width="80" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="9I6AU-m062yrOwvUiyNF-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dTyB1NYPiKnWLOb2Jq6Y-1" target="xQLuOkij8412rpGpJCvE-9">
+        <mxCell id="9I6AU-m062yrOwvUiyNF-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="dTyB1NYPiKnWLOb2Jq6Y-1" target="xQLuOkij8412rpGpJCvE-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LFtMd48XwCnqYr7q9XE8-1" value="GET /profile&lt;div&gt;POST /profile&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="880" y="455" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="LFtMd48XwCnqYr7q9XE8-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="LFtMd48XwCnqYr7q9XE8-3" target="xQLuOkij8412rpGpJCvE-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LFtMd48XwCnqYr7q9XE8-3" value="Swipes" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="990" y="590" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="LFtMd48XwCnqYr7q9XE8-5" value="&lt;div&gt;POST /swipe&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="880" y="595" width="110" height="65" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

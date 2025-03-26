@@ -1,9 +1,21 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.3">
   <diagram name="Page-1" id="CoTDWFha4LhTDb08zGJA">
-    <mxGraphModel dx="934" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="794" dy="442" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="LFtMd48XwCnqYr7q9XE8-7" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1350" y="410" width="350" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="xQLuOkij8412rpGpJCvE-2" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="LFtMd48XwCnqYr7q9XE8-7" vertex="1">
+          <mxGeometry width="350" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="LFtMd48XwCnqYr7q9XE8-6" value="PostgreSQL" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="LFtMd48XwCnqYr7q9XE8-7">
+          <mxGeometry x="145" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LFtMd48XwCnqYr7q9XE8-8" value="preferences" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="LFtMd48XwCnqYr7q9XE8-7">
+          <mxGeometry x="160" y="50" width="80" height="60" as="geometry" />
+        </mxCell>
         <mxCell id="xQLuOkij8412rpGpJCvE-4" value="Redis" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
           <mxGeometry x="1250" y="820" width="60" height="80" as="geometry" />
         </mxCell>
@@ -19,11 +31,13 @@
         <mxCell id="xQLuOkij8412rpGpJCvE-5" value="Kafka" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=4" parent="xQLuOkij8412rpGpJCvE-8" vertex="1">
           <mxGeometry x="50" y="15.000000000000004" width="60" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="LFtMd48XwCnqYr7q9XE8-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="dTyB1NYPiKnWLOb2Jq6Y-1" target="LFtMd48XwCnqYr7q9XE8-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1320" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="dTyB1NYPiKnWLOb2Jq6Y-1" value="Profiles" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="990" y="455" width="120" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="xQLuOkij8412rpGpJCvE-2" value="PoslgreSQL" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
-          <mxGeometry x="1350" y="420" width="350" height="200" as="geometry" />
         </mxCell>
         <mxCell id="xQLuOkij8412rpGpJCvE-9" value="profiles" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1380" y="460" width="80" height="60" as="geometry" />

@@ -12,3 +12,10 @@ CREATE TABLE swipes (
     swipe2 BOOLEAN DEFAULT NULL,
     PRIMARY KEY (id1, id2)
 );
+
+CREATE TABLE preferences (
+    id INTEGER,
+    age INTEGER,
+    sex VARCHAR(6),
+    FOREIGN KEY (id) REFERENCES profiles (id) ON DELETE CASCADE
+);

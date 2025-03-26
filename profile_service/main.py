@@ -43,6 +43,12 @@ class ProfileResponse(BaseModel):
         from_attributes = True
 
 
+class PreferenceRequest(BaseModel):
+    id: int
+    age: int
+    sex: str
+
+
 @app.get('/')
 def healthcheck() -> dict:
     return {'status': 'ok'}
@@ -61,6 +67,19 @@ async def create_profile(request: ProfileRequest, db: AsyncSession = Depends(get
     await db.commit()
     await db.refresh(profile)
     return profile
+
+
+@app.post('/preferences')
+async def create_preference(
+    request: PreferenceRequest, 
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(text(
+        f"""insert into preferences values 
+        ({request.id}, {request.age}, '{request.sex}');""",
+    ))
+    await db.commit()
+    return {'rows_affected': result.rowcount}
 
 
 if __name__ == '__main__':

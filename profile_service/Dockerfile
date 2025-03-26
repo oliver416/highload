@@ -2,7 +2,7 @@ FROM python:3.13-alpine
 
 ENV POETRY_VIRTUALENVS_CREATE=false
 
-WORKDIR /opt
+WORKDIR /app
 
 COPY pyproject.toml poetry.lock ./
 

@@ -12,12 +12,14 @@ services:
       - POSTGRES_DB=postgres
 
   redis:
+    container_name: redis
     image: redis:6-alpine
     restart: always
     ports:
       - 6379:6379
 
   kafka:
+    container_name: kafka
     image: 'bitnami/kafka:latest'
     environment:
       # NOTE: development-only options
@@ -28,6 +30,7 @@ services:
       - 9092:9092
 
   profile-service:
+    container_name: profile-service 
     build: ./profile_service
     volumes: 
       - ./profile_service:/app
@@ -37,8 +40,18 @@ services:
       - db
 
   swipe-service:
+    container_name: swipe-service 
     build: ./swipe_service
     ports:
       - 8081:8000
     depends_on:
       - db
+
+  deck-service:
+    container_name: deck-service 
+    build: ./deck_service
+    volumes: 
+      - ./deck_service:/app
+    depends_on:
+      - db
+      - redis

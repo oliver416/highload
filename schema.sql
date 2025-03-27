@@ -15,7 +15,8 @@ CREATE TABLE swipes (
 
 CREATE TABLE preferences (
     id INTEGER,
-    age INTEGER,
+    min_age INTEGER,
+    max_age INTEGER,
     sex VARCHAR(6),
     FOREIGN KEY (id) REFERENCES profiles (id) ON DELETE CASCADE
 );

@@ -4,6 +4,9 @@ import uvicorn
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, Integer, String, text
+import redis.asyncio as redis_client
+import json
+
 
 DB_URL = 'postgresql+asyncpg://postgres:postgres@postgresql:5432/postgres'
 
@@ -23,6 +26,8 @@ class Profile(Base):
     name = Column(String)
     age = Column(Integer)
     sex = Column(String)
+
+redis = redis_client.Redis(host='redis', port=6379, decode_responses=True)
 
 app = FastAPI()
 
@@ -80,6 +85,12 @@ async def create_preference(
     ))
     await db.commit()
     return {'rows_affected': result.rowcount}
+
+
+@app.get('/deck/{id}', response_model=list[ProfileResponse])
+async def get_deck(id: int):
+    deck = await redis.get(f'deck|{id}')
+    return json.loads(deck)
 
 
 if __name__ == '__main__':

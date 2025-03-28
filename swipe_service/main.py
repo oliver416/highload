@@ -4,6 +4,7 @@ import uvicorn
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, text, Boolean, Integer
+from aiokafka import AIOKafkaProducer
 
 DB_URL = 'postgresql+asyncpg://postgres:postgres@postgresql:5432/postgres'
 
@@ -50,10 +51,19 @@ async def create_swipe(request: SwipeRequest, db: AsyncSession = Depends(get_db)
         ))
 
         if insert.rowcount == 0:
-            update = await db.execute(text(
+            await db.execute(text(
                 f'''update swipes set swipe{num}={decision} where id1={id1} 
                 and id2={id2} and swipe{num} is null;'''
             ))
+            row = await db.execute(text(
+                'select (swipe1 and swipe2) from swipes where id1={id1} and id2={id2};'
+            ))
+
+            if row.one()[0] is True:
+                producer = AIOKafkaProducer(bootstrap_servers='kafka:9092')
+                await producer.start()
+                await producer.send_and_wait('notifications', '{id1}|{id2}'.encode())
+                await producer.stop()
 
 
     return {'rows_affected': insert.rowcount}

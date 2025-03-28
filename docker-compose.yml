@@ -42,6 +42,7 @@ services:
       - 8081:8000
     depends_on:
       - db
+      - kafka
 
   deck-service:
     container_name: deck-service 
@@ -51,3 +52,14 @@ services:
     depends_on:
       - db
       - redis
+
+  notification-service:
+    container_name: notification-service 
+    build: ./notification_service
+    volumes: 
+      - ./notification_service:/app
+    depends_on:
+      - db
+      - redis
+      - kafka
+

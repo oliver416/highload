@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "notifications-service"
+version = "0.1.0"
+description = ""
+authors = ["user <user@mail.com>"]
+readme = "README.md"
+packages = [{include = "notifications_service"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+confluent-kafka = "^2.8.2"
+aiokafka = "^0.12.0"
+loguru = "^0.7.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

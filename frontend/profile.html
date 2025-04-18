@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenAPI Frontend</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .card { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 8px; position: relative; }
+    .form-group { margin-bottom: 10px; }
+    input { padding: 5px; width: 100%; }
+    button { padding: 6px 12px; margin-top: 5px; }
+    .swipe-buttons { display: flex; justify-content: space-between; margin-top: 10px; }
+    .swipe-buttons button { width: 48%; }
+    #response-log { margin-top: 20px; background: #f9f9f9; padding: 10px; border: 1px dashed #aaa; max-height: 300px; overflow-y: auto; }
+  </style>
+</head>
+<body>
+  <h1>User</h1>
+  <div id="user"></div>
+
+  <!--<h2>Create New Profile</h2>-->
+  <!--<div class="form-group"><input id="name" placeholder="Name"></div>-->
+  <!--<div class="form-group"><input id="age" type="number" placeholder="Age"></div>-->
+  <!--<div class="form-group"><input id="sex" placeholder="Sex"></div>-->
+  <!--<button onclick="createProfile()">Create Profile</button>-->
+
+  <h2>Set Preference</h2>
+  <div class="form-group"><input id="pref-id" type="number" placeholder="ID"></div>
+  <div class="form-group"><input id="pref-age" type="number" placeholder="Age"></div>
+  <div class="form-group"><input id="pref-sex" placeholder="Sex"></div>
+  <button onclick="createPreference()">Submit Preference</button>
+
+  <!--<h2>Get Deck by ID</h2>-->
+  <!--<div class="form-group"><input id="deck-id" type="number" placeholder="Deck ID"></div>-->
+  <!--<div class="form-group"><input id="swiper-id" type="number" placeholder="Your (swiper) ID"></div>-->
+  <!--<button onclick="getDeck()">Get Deck</button>-->
+  <div id="deck"></div>
+
+  <h2>Response Log</h2>
+  <div id="response-log"></div>
+
+  <script>
+    const PROFILE_BASE = 'http://localhost:8080';
+    const SWIPE_BASE = 'http://localhost:8081';
+
+    function logResponse(action, data) {
+      const timestamp = new Date().toLocaleTimeString();
+      $('#response-log').prepend(
+        `<div><strong>[${timestamp}] ${action}:</strong><pre>${JSON.stringify(data, null, 2)}</pre></div><hr/>`
+      );
+    }
+
+    function fetchProfiles() {
+      axios.get(`${PROFILE_BASE}/profile`).then(response => {
+        const profiles = response.data;
+        $('#user').empty();
+
+        if (profiles.length === 0) {
+          $('#user').text('No users found');
+          return;
+        }
+        const randomUser = profiles[Math.floor(Math.random() * profiles.length)];
+        $('#user').text('Random user ID: ' + randomUser.id);
+
+        logResponse('GET /profile', profiles);
+
+        getDeck(randomUser.id);
+      });
+    }
+
+    function createProfile() {
+      const data = {
+        name: $('#name').val(),
+        age: parseInt($('#age').val()),
+        sex: $('#sex').val()
+      };
+      axios.post(`${PROFILE_BASE}/profile`, data).then(response => {
+        logResponse('POST /profile', response.data);
+      });
+    }
+
+    function createPreference() {
+      const data = {
+        id: parseInt($('#pref-id').val()),
+        age: parseInt($('#pref-age').val()),
+        sex: $('#pref-sex').val()
+      };
+      axios.post(`${PROFILE_BASE}/preferences`, data).then(response => {
+        alert('Preference submitted');
+        logResponse('POST /preferences', response.data);
+      });
+    }
+
+    function sendSwipe(swiperId, targetId, decision, cardElement) {
+      const data = {
+        swiper: swiperId,
+        target: targetId,
+        decision: decision
+      };
+      axios.post(`${SWIPE_BASE}/swipe`, data).then(response => {
+        logResponse('POST /swipe', data);
+        $(cardElement).remove();
+      })
+      .catch(error => {
+        logResponse('POST /swipe', error);
+        $(cardElement).remove();
+      });
+    }
+
+    function getDeck(userID) {
+    //const id = parseInt($('#deck-id').val());
+    //const swiperId = parseInt($('#swiper-id').val());
+
+      const id = userID;
+      const swiperId = userID;
+
+      axios.get(`${PROFILE_BASE}/deck/${id}`).then(response => {
+        const deck = response.data;
+        $('#deck').html('');
+        deck.forEach(p => {
+          const card = $(
+            `<div class="card" data-id="${p.id}">
+              <p><strong>Name:</strong> ${p.name}</p>
+              <p><strong>Age:</strong> ${p.age}</p>
+              <p><strong>Sex:</strong> ${p.sex}</p>
+              <div class="swipe-buttons">
+                <button class="no-btn">No</button>
+                <button class="yes-btn">Yes</button>
+              </div>
+            </div>`
+          );
+
+          card.find('.no-btn').click(() => sendSwipe(swiperId, p.id, false, card));
+          card.find('.yes-btn').click(() => sendSwipe(swiperId, p.id, true, card));
+
+          $('#deck').append(card);
+        });
+        logResponse(`GET /deck/${id}`, deck);
+      });
+    }
+
+    $(document).ready(function() {
+      fetchProfiles();
+    });
+  </script>
+</body>
+</html>
+

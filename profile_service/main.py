@@ -6,6 +6,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, Integer, String, text
 import redis.asyncio as redis_client
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 
 DB_URL = 'postgresql+asyncpg://postgres:postgres@postgresql:5432/postgres'
@@ -30,6 +31,13 @@ class Profile(Base):
 redis = redis_client.Redis(host='redis', port=6379, decode_responses=True)
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class ProfileRequest(BaseModel):

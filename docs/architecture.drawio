@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.3">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.1.3">
   <diagram name="Page-1" id="CoTDWFha4LhTDb08zGJA">
-    <mxGraphModel dx="934" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="1134" dy="633" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -56,7 +56,7 @@
         <mxCell id="LFtMd48XwCnqYr7q9XE8-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="LFtMd48XwCnqYr7q9XE8-3" target="xQLuOkij8412rpGpJCvE-10" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="POkQv7-OoHhfcwsdikCV-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="LFtMd48XwCnqYr7q9XE8-3" target="f3B5aBYDAURVjYKPminV-9">
+        <mxCell id="POkQv7-OoHhfcwsdikCV-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="LFtMd48XwCnqYr7q9XE8-3" target="f3B5aBYDAURVjYKPminV-9" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1320" y="920" as="targetPoint" />
             <Array as="points">
@@ -65,7 +65,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="POkQv7-OoHhfcwsdikCV-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;notiifications&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="POkQv7-OoHhfcwsdikCV-1">
+        <mxCell id="POkQv7-OoHhfcwsdikCV-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;notiifications&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="POkQv7-OoHhfcwsdikCV-1" vertex="1" connectable="0">
           <mxGeometry x="0.5227" y="-4" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -103,10 +103,10 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="POkQv7-OoHhfcwsdikCV-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="f3B5aBYDAURVjYKPminV-9" target="POkQv7-OoHhfcwsdikCV-3">
+        <mxCell id="POkQv7-OoHhfcwsdikCV-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="f3B5aBYDAURVjYKPminV-9" target="POkQv7-OoHhfcwsdikCV-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="POkQv7-OoHhfcwsdikCV-5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;notifications&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="POkQv7-OoHhfcwsdikCV-4">
+        <mxCell id="POkQv7-OoHhfcwsdikCV-5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;notifications&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="POkQv7-OoHhfcwsdikCV-4" vertex="1" connectable="0">
           <mxGeometry x="0.0101" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -114,7 +114,7 @@
         <mxCell id="f3B5aBYDAURVjYKPminV-9" value="&lt;font&gt;Kafka&lt;/font&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="1465" y="910" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="POkQv7-OoHhfcwsdikCV-3" value="Decks" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="POkQv7-OoHhfcwsdikCV-3" value="Notifications" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="1870" y="915" width="120" height="70" as="geometry" />
         </mxCell>
       </root>

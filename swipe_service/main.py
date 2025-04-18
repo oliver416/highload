@@ -5,6 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, text, Boolean, Integer
 from aiokafka import AIOKafkaProducer
+from fastapi.middleware.cors import CORSMiddleware
 
 DB_URL = 'postgresql+asyncpg://postgres:postgres@postgresql:5432/postgres'
 
@@ -18,7 +19,13 @@ async def get_db():
 Base = declarative_base()
 
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class SwipeRequest(BaseModel):
     swiper: int
